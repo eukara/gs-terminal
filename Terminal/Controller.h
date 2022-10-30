@@ -82,4 +82,6 @@
 - (id)preferencesForWindow:(NSWindow *)win
                       live:(BOOL)isLive;
 
+- (void)saveSessionAs:(id)sender;
+
 @end

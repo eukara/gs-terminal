@@ -902,6 +902,7 @@
   NSString                 *prog;
   TerminalWindowController *twc;
   Defaults                 *prefs;
+	NSDictionary *dict;
   
   args = [NSMutableArray
            arrayWithArray:[commandLine componentsSeparatedByString:@" "]];
@@ -919,10 +920,12 @@
   // Set close behaviour
   prefs = [[Defaults alloc] initEmpty];
   [prefs setWindowCloseBehavior:WindowCloseNever];
+
+  dict = [NSDictionary dictionaryWithObjectsAndKeys: @"Preferences", prefs, nil];
   [[NSNotificationCenter defaultCenter]
        postNotificationName:TerminalPreferencesDidChangeNotification
                      object:[twc window]
-                   userInfo:@{@"Preferences":prefs}];
+                   userInfo: dict];
   
   [[twc window] makeKeyAndOrderFront:self];
 }

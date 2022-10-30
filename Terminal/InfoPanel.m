@@ -52,6 +52,7 @@
 
 - (void)showAnimation
 {
+	int i;
   NSString *mPath = [[NSBundle mainBundle]
                                    pathForResource:@"ScrollingMach"
                                             ofType:@"tiff"];
@@ -64,7 +65,7 @@
   [[panel contentView] addSubview:machView];
   [machView release];
 
-  for (int i = 0; i < 10; i++)
+  for (i = 0; i < 10; i++)
     {
       [machView lockFocus];
       [scrollingMach compositeToPoint:NSMakePoint(0, 0)

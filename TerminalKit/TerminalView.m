@@ -2985,6 +2985,7 @@ static int handled_mask = (NSDragOperationCopy |
   unichar      		ch;
   int			start_index, end_index;
   int			len;
+	int i;
 
   if (sb_length > 0)
     start_index = -(sb_length * sx);
@@ -2995,7 +2996,7 @@ static int handled_mask = (NSDragOperationCopy |
   // j = abs(sb_length * sx) + range.length;
   // range.length = scrollbuffer size + visible area size in terms of chars
   len = 0;
-  for (int i = start_index; i < end_index; i++)
+  for (i = start_index; i < end_index; i++)
     {
       if (i < 0)
         ch = sbuf[ofs+i].ch;
